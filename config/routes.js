@@ -20,20 +20,15 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  'GET /user/:id': { action: 'user/get-user'},
-  'PATCH /user/:id': { action: 'user/edit-user'},
-
-
-  /***************************************************************************
-  *                                                                          *
-  * More custom routes here...                                               *
-  * (See https://sailsjs.com/config/routes for examples.)                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the routes in this file, it   *
-  * is matched against "shadow routes" (e.g. blueprint routes).  If it does  *
-  * not match any of those, it is matched against static assets.             *
-  *                                                                          *
-  ***************************************************************************/
+  // USER
+  'GET /user/:id?': { action: 'user/get'},
+  'PATCH /user/:id': { action: 'user/edit'},
+  // EXERCISE
+  'GET /exercise/:id': { action: 'exercise/get'},
+  'PATCH /exercise/:id': { action: 'exercise/edit'},
+  // NUTRITION
+  'GET /nutrition/:id': { action: 'nutrition/get'},
+  'PATCH /nutrition/:id': { action: 'nutrition/edit'},
 
 
 };
