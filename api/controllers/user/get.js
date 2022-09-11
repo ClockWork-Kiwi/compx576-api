@@ -23,7 +23,6 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    let result;
     if (!inputs.id) {
       result = await User.find();
     } else {

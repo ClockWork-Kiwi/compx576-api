@@ -1,19 +1,24 @@
+/**
+ * User.js
+ *
+ * A user who can log in to this application.
+ */
+
 module.exports = {
+  tableName: 'food_items',
 
+  attributes: {
 
-  friendlyName: 'Get a user\'s nutrition items',
-
-
-  description: 'test.',
-
-  inputs: {
     id: {
       type: 'number',
+      unique: true,
+      autoIncrement: true,
     },
 
     uid: {
       type: 'number',
       required: true,
+      unique: true,
     },
 
     food_name: {
@@ -23,6 +28,7 @@ module.exports = {
 
     calories: {
       type: 'number',
+      required: true,
     },
 
     protein: {
@@ -37,21 +43,6 @@ module.exports = {
       type: 'number',
     },
   },
-
-  exits: {
-
-    success: {
-    }
-
-  },
-
-
-  fn: async function (inputs) {
-    sails.log(inputs.uid);
-    let result = await NutritionItem.find({uid: inputs.uid});
-    return result;
-
-  }
 
 
 };

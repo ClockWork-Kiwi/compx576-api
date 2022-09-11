@@ -27,8 +27,8 @@ module.exports.routes = {
   'GET /exercise/:id': { action: 'exercise/get'},
   'PATCH /exercise/:id': { action: 'exercise/edit'},
   // NUTRITION
-  'GET /nutrition/:id': { action: 'nutrition/get'},
-  'PATCH /nutrition/:id': { action: 'nutrition/edit'},
+  'GET /nutrition/:uid': { action: 'nutrition/get'},
+  'PATCH /nutrition/:uid': { action: 'nutrition/edit'},
 
 
 };
