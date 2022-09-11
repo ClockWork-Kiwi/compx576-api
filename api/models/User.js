@@ -14,7 +14,7 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
     id: {
-      type: 'integer',
+      type: 'number',
       required: true,
       unique: true,
     },
@@ -40,49 +40,49 @@ module.exports = {
     },
 
     age: {
-      type: 'integer',
+      type: 'number',
       required: true,
       example: 20
     },
 
     height: {
-      type: 'integer',
+      type: 'number',
       required: true,
       example: 180
     },
 
     weight: {
-      type: 'integer',
+      type: 'number',
       required: true,
       example: 90
     },
 
     weight_goal: {
-      type: 'integer',
+      type: 'number',
       required: true,
       example: 1
     },
 
     diet_plan: {
-      type: 'integer',
+      type: 'number',
       required: false,
       example: 1
     },
 
     calories_allowed: {
-      type: 'integer',
+      type: 'number',
       required: false,
       example: 2000
     },
 
     calories_consumed: {
-      type: 'integer',
+      type: 'number',
       required: false,
       example: 500
     },
 
     calories_burned: {
-      type: 'integer',
+      type: 'number',
       required: false,
       example: 200
     },

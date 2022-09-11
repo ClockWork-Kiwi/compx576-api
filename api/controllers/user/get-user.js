@@ -6,6 +6,13 @@ module.exports = {
 
   description: 'test.',
 
+  inputs: {
+    id: {
+      type: 'number',
+      required: false,
+    }
+  },
+
 
   exits: {
 
@@ -15,11 +22,14 @@ module.exports = {
   },
 
 
-  fn: async function () {
-
-   let x = await User.find();
-
-    return x;
+  fn: async function (inputs) {
+    let result;
+    if (!inputs.id) {
+      result = await User.find();
+    } else {
+      result = await User.findOne({id: inputs.id});
+    }
+    return result;
 
   }
 
