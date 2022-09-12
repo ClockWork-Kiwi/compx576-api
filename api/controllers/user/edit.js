@@ -7,6 +7,9 @@ module.exports = {
   description: 'test.',
 
   inputs: {
+    id: {
+      type: 'number'
+    },
     sex: {
       type: 'string',
       required: false,
@@ -54,7 +57,12 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    let result = await User.update(this.req.param('id')).set(inputs);
+    let result;
+    if (!inputs.id) {
+      result = await User.create(inputs);
+    } else {
+      result = await User.update(inputs.id).set(inputs);
+    }
     return result;
   }
 

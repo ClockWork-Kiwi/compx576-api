@@ -24,11 +24,12 @@ module.exports.routes = {
   'GET /user/:id?': { action: 'user/get'},
   'PATCH /user/:id': { action: 'user/edit'},
   // EXERCISE
-  'GET /exercise/:id': { action: 'exercise/get'},
-  'PATCH /exercise/:id': { action: 'exercise/edit'},
+  'GET /exercise/:uid': { action: 'exercise/get'},
+  'PATCH /exercise/:uid': { action: 'exercise/edit'},
+  'DELETE /exercise/:uid': { action: 'exercise/delete' },
   // NUTRITION
   'GET /nutrition/:uid': { action: 'nutrition/get'},
   'PATCH /nutrition/:uid': { action: 'nutrition/edit'},
-
+  'DELETE /nutrition/:uid': { action: 'nutrition/delete'},
 
 };
