@@ -47,7 +47,7 @@ module.exports = {
   fn: async function (inputs) {
     let result;
     if (!inputs.id) {
-      result = await NutritionItem.create(inputs);
+      result = await NutritionItem.create(inputs).fetch();
     } else {
       result = await NutritionItem.update(inputs.id).set(inputs);
     }

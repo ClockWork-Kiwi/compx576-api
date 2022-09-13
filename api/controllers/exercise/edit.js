@@ -1,0 +1,52 @@
+module.exports = {
+
+
+  friendlyName: 'Edit a single user',
+
+
+  description: 'test.',
+
+  inputs: {
+
+    id: {
+      type: 'number',
+    },
+
+    uid: {
+      type: 'number',
+      required: true,
+    },
+
+    exercise_name: {
+      type: 'string',
+    },
+
+    calories: {
+      type: 'number',
+    },
+
+    duration: {
+      type: 'number',
+    },
+  },
+
+  exits: {
+
+    success: {
+    }
+
+  },
+
+
+  fn: async function (inputs) {
+    let result;
+    if (!inputs.id) {
+      result = await ExerciseItem.create(inputs).fetch();
+    } else {
+      result = await ExerciseItem.update(inputs.id).set(inputs);
+    }
+    return result;
+  }
+
+
+};

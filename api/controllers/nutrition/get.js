@@ -15,27 +15,6 @@ module.exports = {
       type: 'number',
       required: true,
     },
-
-    food_name: {
-      type: 'string',
-      maxLength: 200,
-    },
-
-    calories: {
-      type: 'number',
-    },
-
-    protein: {
-      type: 'number',
-    },
-
-    fat: {
-      type: 'number',
-    },
-
-    carbs: {
-      type: 'number',
-    },
   },
 
   exits: {
