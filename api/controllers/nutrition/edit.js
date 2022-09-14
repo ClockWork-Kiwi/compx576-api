@@ -34,6 +34,10 @@ module.exports = {
     carbs: {
       type: 'number',
     },
+
+    date: {
+      type: 'string',
+    }
   },
 
   exits: {

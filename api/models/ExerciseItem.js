@@ -34,6 +34,10 @@ module.exports = {
     duration: {
       type: 'number',
     },
+
+    date: {
+      type: 'string',
+    }
   },
 
 
