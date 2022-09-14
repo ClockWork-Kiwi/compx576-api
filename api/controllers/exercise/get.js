@@ -25,10 +25,21 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
+  fn: async function (inputs)  {
     let result = await ExerciseItem.find({uid: inputs.uid});
-    return result;
-
+    if (!result || !result.length) { return []; }
+    const today = new Date();
+    const storedDate = new Date(result[0].date);
+    const dayMatch = today.getDay() === storedDate.getDay();
+    const monthMatch = today.getMonth() === storedDate.getMonth();
+    const yearMatch = today.getFullYear() === storedDate.getFullYear();
+    if (!dayMatch || !monthMatch || !yearMatch) {
+      // Wipe table
+      await NutritionItem.destroy({uid: inputs.uid});
+      return [];
+    } else {
+      return result;
+    }
   }
 
 
