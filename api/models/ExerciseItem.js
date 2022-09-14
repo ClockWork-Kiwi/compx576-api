@@ -18,7 +18,6 @@ module.exports = {
     uid: {
       type: 'number',
       required: true,
-      unique: true,
     },
 
     exercise_name: {
