@@ -58,11 +58,14 @@ module.exports = {
 
   fn: async function (inputs) {
     let result;
-    if (!inputs.id) {
-      result = await User.create(inputs);
+    const uid = inputs.id;
+    delete inputs.id;
+    if (!uid) {
+      result = await User.create(inputs).fetch();
     } else {
-      result = await User.update(inputs.id).set(inputs);
+      result = await User.update(uid).set(inputs).fetch();
     }
+    if (!!result) { result = result[0]; }
     return result;
   }
 

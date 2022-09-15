@@ -23,7 +23,12 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    return await User.findOne({id: inputs.id});
+    let result = await User.findOne({id: inputs.id});
+    if (!!result) {
+      delete result.password;
+      return result;
+    }
+    return null;
   }
 
 
