@@ -51,10 +51,11 @@ module.exports = {
   fn: async function (inputs) {
     let result;
     if (!inputs.id) {
-      result = await NutritionItem.create(inputs).fetch();
+      result = await NutritionItem.create(inputs);
     } else {
       result = await NutritionItem.update(inputs.id).set(inputs);
     }
+    result = await NutritionItem.find({uid: inputs.uid});
     return result;
   }
 

@@ -45,10 +45,11 @@ module.exports = {
   fn: async function (inputs) {
     let result;
     if (!inputs.id) {
-      result = await ExerciseItem.create(inputs).fetch();
+      result = await ExerciseItem.create(inputs);
     } else {
       result = await ExerciseItem.update(inputs.id).set(inputs);
     }
+    result = await ExerciseItem.find({uid: inputs.uid});
     return result;
   }
 

@@ -61,7 +61,7 @@ module.exports = {
     const uid = inputs.id;
     delete inputs.id;
     if (!uid) {
-      result = await User.create(inputs).fetch();
+      result = await User.create(inputs);
     } else {
       result = await User.update(uid).set(inputs).fetch();
     }
