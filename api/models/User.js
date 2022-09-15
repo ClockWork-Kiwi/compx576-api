@@ -8,11 +8,6 @@ module.exports = {
   tableName: 'users',
 
   attributes: {
-
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
     id: {
       type: 'number',
       required: true,
@@ -74,40 +69,6 @@ module.exports = {
       required: false,
       example: 2000
     },
-
-    calories_consumed: {
-      type: 'number',
-      required: false,
-      example: 500
-    },
-
-    calories_burned: {
-      type: 'number',
-      required: false,
-      example: 200
-    },
-
-    // passwordResetToken: {
-    //   type: 'string',
-    //   description: 'A unique token used to verify the user\'s identity when recovering a password.  Expires after 1 use, or after a set amount of time has elapsed.'
-    // },
-    //
-    // passwordResetTokenExpiresAt: {
-    //   type: 'number',
-    //   description: 'A JS timestamp (epoch ms) representing the moment when this user\'s `passwordResetToken` will expire (or 0 if the user currently has no such token).',
-    //   example: 1502844074211
-    // },
-
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-    // n/a
-
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    // n/a
-
   },
 
 

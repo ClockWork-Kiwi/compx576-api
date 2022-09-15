@@ -1,18 +1,17 @@
 module.exports = {
 
 
-  friendlyName: 'View all/single user',
+  friendlyName: 'Get a user\'s nutrition items',
 
 
   description: 'test.',
 
   inputs: {
-    id: {
+    uid: {
       type: 'number',
       required: true,
-    }
+    },
   },
-
 
   exits: {
 
@@ -23,7 +22,9 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    return await User.findOne({id: inputs.id});
+    let result = await UserCalories.destroy({uid: inputs.uid});
+    return result;
+
   }
 
 

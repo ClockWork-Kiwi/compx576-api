@@ -21,8 +21,12 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   // USER
-  'GET /user/:id?': { action: 'user/get'},
+  'GET /user/:id': { action: 'user/get'},
   'PATCH /user/:id': { action: 'user/edit'},
+  // USER CALORIES
+  'GET /user/:uid/calories': { action: 'user/calories/get'},
+  'PATCH /user/:uid/calories': { action: 'user/calories/edit'},
+  'DELETE /user/:uid/calories': { action: 'user/calories/delete'},
   // EXERCISE
   'GET /exercise/:uid': { action: 'exercise/get'},
   'PATCH /exercise/:uid': { action: 'exercise/edit'},

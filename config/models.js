@@ -76,7 +76,6 @@ module.exports.models = {
     //  ||   Replace `id` above with this instead:
     //
     // ```
-    // id: { type: 'string', columnName: '_id' },
     // ```
     //
     // Plus, don't forget to configure MongoDB as your default datastore:
