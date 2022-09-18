@@ -31,7 +31,7 @@ module.exports = {
     const yearMatch = today.getFullYear() === storedDate.getFullYear();
     if (!dayMatch || !monthMatch || !yearMatch) {
       // Wipe table
-      await NutritionItem.destroy({uid: inputs.uid});
+      await UserCalories.destroy({uid: inputs.uid});
       return null;
     } else {
       return result;
