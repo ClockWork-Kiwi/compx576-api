@@ -23,7 +23,7 @@ module.exports = {
 
   fn: async function (inputs) {
     let result = await UserCalories.findOne({uid: inputs.uid});
-    if (!result) { return null; }
+    if (!result) { return {}; }
     const today = new Date();
     const storedDate = new Date(result.date);
     const dayMatch = today.getDay() === storedDate.getDay();
@@ -32,7 +32,7 @@ module.exports = {
     if (!dayMatch || !monthMatch || !yearMatch) {
       // Wipe table
       await UserCalories.destroy({uid: inputs.uid});
-      return null;
+      return {};
     } else {
       return result;
     }

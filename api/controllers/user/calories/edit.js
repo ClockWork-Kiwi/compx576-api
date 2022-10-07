@@ -37,6 +37,8 @@ module.exports = {
   fn: async function (inputs) {
     let result = await UserCalories.findOne({uid: inputs.uid});
     if (!result) {
+      if (!inputs.calories_consumed) { inputs.calories_consumed = 0; }
+      if (!inputs.calories_burned) { inputs.calories_burned = 0; }
       result = await UserCalories.create(inputs).fetch();
       result = result[0];
     } else {
