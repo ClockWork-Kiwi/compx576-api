@@ -25,6 +25,10 @@ module.exports = {
       maxLength: 200,
     },
 
+    servings: {
+      type: 'number',
+    },
+
     calories: {
       type: 'number',
       required: true,

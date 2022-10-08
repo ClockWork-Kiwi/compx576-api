@@ -32,8 +32,8 @@ module.exports = {
     } else {
       result = await NutritionItem.destroyOne({id: inputs.id});
     }
+    result = await NutritionItem.find({uid: inputs.uid});
     return result;
-
   }
 
 

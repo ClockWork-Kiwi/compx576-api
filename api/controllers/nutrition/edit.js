@@ -19,6 +19,10 @@ module.exports = {
       type: 'string',
     },
 
+    servings: {
+      type: 'number',
+    },
+
     calories: {
       type: 'number',
     },
