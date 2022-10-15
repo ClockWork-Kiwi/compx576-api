@@ -30,7 +30,7 @@ module.exports = {
     if (!result || !result.length) { return []; }
     const today = new Date();
     const storedDate = new Date(result[0].date);
-    const dayMatch = today.getDay() === storedDate.getDay();
+    const dayMatch = today.getDate() === storedDate.getDate();
     const monthMatch = today.getMonth() === storedDate.getMonth();
     const yearMatch = today.getFullYear() === storedDate.getFullYear();
     if (!dayMatch || !monthMatch || !yearMatch) {
