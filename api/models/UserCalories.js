@@ -24,6 +24,11 @@ module.exports = {
       maxLength: 100,
     },
 
+    calories_allowed: {
+      type: 'number',
+      required: true,
+    },
+
     calories_burned:  {
       type: 'number',
       required: true,

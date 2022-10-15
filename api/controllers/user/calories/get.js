@@ -22,20 +22,24 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    let result = await UserCalories.findOne({uid: inputs.uid});
-    if (!result) { return {}; }
-    const today = new Date();
-    const storedDate = new Date(result.date);
-    const dayMatch = today.getDay() === storedDate.getDay();
-    const monthMatch = today.getMonth() === storedDate.getMonth();
-    const yearMatch = today.getFullYear() === storedDate.getFullYear();
-    if (!dayMatch || !monthMatch || !yearMatch) {
-      // Wipe table
-      await UserCalories.destroy({uid: inputs.uid});
-      return {};
-    } else {
-      return result;
+    let result = await UserCalories.find({uid: inputs.uid}).sort('date DESC');
+    if (!result) { return []; }
+    const today = new Date().getDate();
+    const thisMonth = new Date().getMonth();
+    const thisYear = new Date().getFullYear();
+    const output = [];
+    for (let i = 0; i < 7; i++) {
+      let found = false;
+      for (let row of result) {
+        const storedDate = new Date(row.date);
+        if ((storedDate.getDate() === today - i) && storedDate.getMonth() === thisMonth && storedDate.getFullYear() === thisYear) {
+          output.push(row);
+          found = true;
+        }
+      }
+      if (!found) { output.push({}); }
     }
+    return output;
   }
 
 

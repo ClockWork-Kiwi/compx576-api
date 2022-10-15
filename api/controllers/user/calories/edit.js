@@ -17,6 +17,10 @@ module.exports = {
       type: 'string',
     },
 
+    calories_allowed: {
+      type: 'number',
+    },
+
     calories_burned: {
       type: 'number',
     },
@@ -35,15 +39,14 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    let result = await UserCalories.findOne({uid: inputs.uid});
+    const today = new Date();
+    let result = await UserCalories.findOne({uid: inputs.uid, date: today});
     if (!result) {
       if (!inputs.calories_consumed) { inputs.calories_consumed = 0; }
       if (!inputs.calories_burned) { inputs.calories_burned = 0; }
       result = await UserCalories.create(inputs).fetch();
-      result = result[0];
     } else {
       result = await UserCalories.update({uid: inputs.uid}).set(inputs).fetch();
-      result = result[0];
     }
     return result;
   }
