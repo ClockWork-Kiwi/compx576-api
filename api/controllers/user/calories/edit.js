@@ -39,16 +39,16 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    const today = new Date();
+    const today = new Date().toISOString().split('T')[0];
     let result = await UserCalories.findOne({uid: inputs.uid, date: today});
     if (!result) {
       if (!inputs.calories_consumed) { inputs.calories_consumed = 0; }
       if (!inputs.calories_burned) { inputs.calories_burned = 0; }
       result = await UserCalories.create(inputs).fetch();
     } else {
-      result = await UserCalories.update({uid: inputs.uid}).set(inputs).fetch();
+      result = await UserCalories.update({uid: inputs.uid, date: today}).set(inputs).fetch();
     }
-    return result;
+    return result[0];
   }
 
 
