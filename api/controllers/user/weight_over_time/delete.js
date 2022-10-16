@@ -7,14 +7,13 @@ module.exports = {
   description: 'test.',
 
   inputs: {
-    id: {
-      type: 'number',
-    },
-
     uid: {
       type: 'number',
       required: true,
     },
+    id: {
+      type: 'number'
+    }
   },
 
   exits: {
@@ -28,13 +27,11 @@ module.exports = {
   fn: async function (inputs) {
     let result;
     if (!inputs.id) {
-      result = await ExerciseItem.destroy({uid: inputs.uid});
+      result = await UserWeight.destroy({uid: inputs.uid});
     } else {
-      result = await ExerciseItem.destroyOne({id: inputs.id});
+      result = await UserWeight.destroyOne({id: inputs.id});
     }
-    result = await ExerciseItem.find({uid: inputs.uid});
     return result;
-
   }
 
 
