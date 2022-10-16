@@ -28,7 +28,7 @@ module.exports = {
     const thisMonth = new Date().getMonth();
     const thisYear = new Date().getFullYear();
     const output = [];
-    for (let i = 0; i < 7; i++) {
+    for (let i = 6; i >= 0; i--) {
       let found = false;
       for (let row of result) {
         const storedDate = new Date(row.date);
@@ -37,7 +37,9 @@ module.exports = {
           found = true;
         }
       }
-      if (!found) { output.push({}); }
+      if (!found) {
+        output.push({});
+      }
     }
     return output;
   }
