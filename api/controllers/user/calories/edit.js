@@ -39,7 +39,8 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    const today = new Date().toISOString().split('T')[0];
+    let today = new Date();
+    today = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     let result = await UserCalories.findOne({uid: inputs.uid, date: today});
     if (!result) {
       if (!inputs.calories_consumed) { inputs.calories_consumed = 0; }
