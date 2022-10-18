@@ -10,6 +10,12 @@ module.exports = {
     id: {
       type: 'number'
     },
+    username: {
+      type: 'string',
+    },
+    password: {
+      type: 'string',
+    },
     sex: {
       type: 'string',
       required: false,
@@ -38,14 +44,6 @@ module.exports = {
       type: 'number',
       required: false,
     },
-    calories_consumed: {
-      type: 'number',
-      required: false,
-    },
-    calories_burned: {
-      type: 'number',
-      required: false,
-    },
   },
 
   exits: {
@@ -61,11 +59,14 @@ module.exports = {
     const uid = inputs.id;
     delete inputs.id;
     if (!uid) {
-      result = await User.create(inputs);
+      const argon2 = require('argon2');
+      inputs.password = await argon2.hash(inputs.password);
+      result = await User.create(inputs).fetch();
     } else {
-      result = await User.update(uid).set(inputs).fetch();
+      result = await User.updateOne({id: uid}).set(inputs);
     }
-    if (!!result) { result = result[0]; }
+    delete result.username;
+    delete result.password;
     return result;
   }
 

@@ -10,20 +10,18 @@ module.exports = {
   attributes: {
     id: {
       type: 'number',
-      required: true,
+      autoIncrement: true,
       unique: true,
     },
 
     username: {
       type: 'string',
-      required: true,
       unique: true,
       maxLength: 100,
     },
 
     password: {
       type: 'string',
-      required: true,
       protect: true,
       example: '2$28a8eabna301089103-13948134nad'
     },

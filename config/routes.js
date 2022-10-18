@@ -20,6 +20,10 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  // LOGIN/VERIFY/REGISTER
+  'POST /login': { action: 'user/login' },
+  'POST /verify': { action: 'user/verify' },
+  'POST /register': { action: 'user/edit' },
   // USER
   'GET /user/:id': { action: 'user/get'},
   'PATCH /user/:id': { action: 'user/edit'},
