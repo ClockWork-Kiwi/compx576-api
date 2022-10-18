@@ -24,6 +24,7 @@ module.exports.routes = {
   'GET /user/:id': { action: 'user/get'},
   'PATCH /user/:id': { action: 'user/edit'},
   // USER CALORIES
+  'GET /user/:uid/calories/week': { action: 'user/calories/get-week'},
   'GET /user/:uid/calories': { action: 'user/calories/get'},
   'PATCH /user/:uid/calories': { action: 'user/calories/edit'},
   'DELETE /user/:uid/calories': { action: 'user/calories/delete'},

@@ -35,14 +35,15 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    const today = new Date().toISOString().split('T')[0];
+    let today = new Date();
+    today = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     let result = await UserWeight.findOne({uid: inputs.uid, date: today});
     if (!result) {
       result = await UserWeight.create(inputs).fetch();
     } else {
       result = await UserWeight.update({uid: inputs.uid, date: today}).set(inputs).fetch();
     }
-    return result[0];
+    return !!result.length ? result[0] : result;
   }
 
 

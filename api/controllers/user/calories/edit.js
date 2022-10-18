@@ -1,11 +1,5 @@
 module.exports = {
 
-
-  friendlyName: 'Edit a single user',
-
-
-  description: 'test.',
-
   inputs: {
 
     uid: {
@@ -49,7 +43,7 @@ module.exports = {
     } else {
       result = await UserCalories.update({uid: inputs.uid, date: today}).set(inputs).fetch();
     }
-    return result[0];
+    return !!result.length ? result[0] : result;
   }
 
 
