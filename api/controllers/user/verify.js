@@ -24,6 +24,7 @@ module.exports = {
 
   fn: async function (inputs) {
     const jwt = require('jsonwebtoken');
+    if (!inputs.token) { return false; }
     return !!jwt.verify(inputs.token, 'fitnesse-dashboard').username;
   }
 };
