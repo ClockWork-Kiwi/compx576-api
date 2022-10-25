@@ -1,7 +1,7 @@
 /**
- * User.js
+ * UserCalories.js
  *
- * A user who can log in to this application.
+ * An entry describing the calories allowed, consumed and burned by a user on a given day
  */
 
 module.exports = {

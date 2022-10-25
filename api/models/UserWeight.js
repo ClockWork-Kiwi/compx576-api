@@ -1,7 +1,7 @@
 /**
- * User.js
+ * UserWeight.js
  *
- * A user who can log in to this application.
+ * An entry describing a user's weight on a given day
  */
 
 module.exports = {

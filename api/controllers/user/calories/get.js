@@ -1,10 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get a user\'s nutrition items',
-
-
-  description: 'test.',
+  friendlyName: 'Get a user\'s calorie information over time',
 
   inputs: {
     uid: {
@@ -22,7 +19,10 @@ module.exports = {
 
 
   fn: async function (inputs) {
+    // Find the calorie totals per day associated with the given user
     let result = await UserCalories.find({uid: inputs.uid});
+    // Sort the result so that least recent dates are first, and most recent are last.
+    // Return the sorted array
     return result.sort((a, b) => {
       const aDate = new Date(a.date);
       const bDate = new Date(b.date);

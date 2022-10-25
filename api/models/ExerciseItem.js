@@ -1,7 +1,8 @@
 /**
- * User.js
+ * ExerciseItem.js
  *
- * A user who can log in to this application.
+ * A user exercise item that has calories, and a duration associated with it
+ * The date of creation of exercise items are stored, so that they can be wiped from the database every day
  */
 
 module.exports = {

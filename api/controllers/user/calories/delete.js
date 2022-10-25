@@ -1,10 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get a user\'s nutrition items',
-
-
-  description: 'test.',
+  friendlyName: 'Delete a user\'s calorie totals',
 
   inputs: {
     uid: {
@@ -22,6 +19,7 @@ module.exports = {
 
 
   fn: async function (inputs) {
+    // Destroy all user calorie entries associated with the given user
     let result = await UserCalories.destroy({uid: inputs.uid});
     return result;
 

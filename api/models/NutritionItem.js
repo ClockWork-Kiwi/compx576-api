@@ -1,7 +1,8 @@
 /**
- * User.js
+ * NutritionItem.js
  *
- * A user who can log in to this application.
+ * A user nutrition item that has calories, fat, carbs, and protein associated with it
+ * The date of creation of nutrition items is stored, so that they can be wiped from the database every day
  */
 
 module.exports = {

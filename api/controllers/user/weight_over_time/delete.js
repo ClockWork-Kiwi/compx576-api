@@ -1,10 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get a user\'s nutrition items',
-
-
-  description: 'test.',
+  friendlyName: 'Delete a user\'s weight over time item(s)',
 
   inputs: {
     uid: {
@@ -26,11 +23,13 @@ module.exports = {
 
   fn: async function (inputs) {
     let result;
+    // If an id for a user weight object was not supplied, destroy all user weight objects associated with the user
     if (!inputs.id) {
       result = await UserWeight.destroy({uid: inputs.uid});
-    } else {
+    } else { // If an id for a user weight object was supplied, simply destroy that one
       result = await UserWeight.destroyOne({id: inputs.id});
     }
+    // Return the deleted item
     return result;
   }
 

@@ -1,10 +1,7 @@
 module.exports = {
 
 
-  friendlyName: 'Get a user\'s nutrition items',
-
-
-  description: 'test.',
+  friendlyName: 'Get a user\'s weight over time',
 
   inputs: {
     uid: {
@@ -22,6 +19,7 @@ module.exports = {
 
 
   fn: async function (inputs) {
+    // Find any user weight objects associated with the given user, and return them sorted from least recent > most recent
     let result = await UserWeight.find({uid: inputs.uid}).sort('date ASC');
     return result;
   }
